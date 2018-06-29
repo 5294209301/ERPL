@@ -1,1 +1,17 @@
-
+-- 分配权限 1 新人  2. 已有权限  3 ORG_RRN 
+insert into ad_usergroup_user
+  select t.usergroup_rrn,
+         (select u.object_rrn from ad_user u where u.user_name = '02094')
+    from ad_usergroup_user t
+   where t.usergroup_rrn in
+         (select u.object_rrn from ad_usergroup u where u.org_rrn = 139420)
+     and t.user_rrn =
+         (select u.object_rrn from ad_user u where u.user_name = '300151');
+         
+         
+         SELECT * FROM AD_ORG
+         
+         SELECT * FROM AD_USER U WHERE U.DESCRIPTION  like '郑%';
+         
+         
+         SELECT * FROM AD_USER U WHERE U.USER_NAME = '300138';
